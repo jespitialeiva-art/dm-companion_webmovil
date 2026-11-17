@@ -1,0 +1,245 @@
+.app {
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+header {
+  background-color: #252038;
+  padding: 25px;
+  text-align: center;
+}
+
+header h1 {
+  color: #e8c47d;
+  margin: 0;
+}
+
+header p {
+  color: #dddddd;
+}
+
+main {
+  padding: 30px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  color: #e8c47d;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-around;
+
+  background-color: #252038;
+  padding: 15px;
+}
+
+.navbar button {
+  background-color: #b08d57;
+  color: #111111;
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 12px 15px;
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  background-color: #e8c47d;
+}
+/* Buscador */
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+  border: 1px solid #b08d57;
+  border-radius: 8px;
+  background-color: #252038;
+  color: white;
+  font-size: 16px;
+}
+
+/* Lista de monstruos */
+
+.monster-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 220px), 1fr)
+  );
+  gap: 20px;
+}
+
+/* Tarjetas */
+
+.monster-card {
+  background-color: #252038;
+  padding: 20px;
+  border: 1px solid #b08d57;
+  border-radius: 12px;
+}
+
+.monster-card h3 {
+  color: #e8c47d;
+  margin-top: 0;
+}
+
+/* Botones */
+
+.monster-card button,
+.monster-details button {
+  background-color: #b08d57;
+  color: #111111;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* Detalles */
+
+.monster-details {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #252038;
+  border: 1px solid #b08d57;
+  border-radius: 12px;
+}
+/* Generador de botín */
+
+.loot-container {
+  background-color: #252038;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #b08d57;
+  max-width: 500px;
+  margin-top: 25px;
+}
+
+.loot-container label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.loot-container select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #b08d57;
+  background-color: #15131f;
+  color: white;
+  font-size: 16px;
+}
+
+.loot-container button {
+  width: 100%;
+  background-color: #b08d57;
+  color: #111111;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.loot-container button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.loot-result {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #15131f;
+  border-radius: 10px;
+}
+
+.loot-result h3,
+.loot-result h4 {
+  color: #e8c47d;
+}
+
+.loot-result p {
+  margin: 10px 0;
+}
+
+.loot-note {
+  font-size: 13px;
+  color: #aaaaaa;
+}
+
+/* Bandeja de dados */
+
+.dice-container {
+  background-color: #252038;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #b08d57;
+  max-width: 600px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.dice-container h3 {
+  color: #e8c47d;
+}
+
+.dice-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.dice-buttons button {
+  background-color: #15131f;
+  color: white;
+  border: 1px solid #b08d57;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dice-buttons button.selected {
+  background-color: #b08d57;
+  color: #111111;
+  font-weight: bold;
+}
+
+.dice-result {
+  margin: 25px 0;
+  padding: 20px;
+  background-color: #15131f;
+  border-radius: 12px;
+}
+
+.dice-result h1 {
+  font-size: 70px;
+  color: #e8c47d;
+  margin: 15px 0;
+}
+
+.roll-button {
+  background-color: #b08d57;
+  color: #111111;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.roll-button:hover {
+  background-color: #e8c47d;
+}
