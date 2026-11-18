@@ -267,3 +267,7 @@ h2 {
   opacity: 0.4;
   cursor: not-allowed;
 }
+.navbar button.active {
+  background-color: #e8c47d;
+  font-weight: bold;
+}

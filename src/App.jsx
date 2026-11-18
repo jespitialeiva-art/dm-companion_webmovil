@@ -19,7 +19,9 @@ export default function App() {
 
       <main>
         {currentPage === "bestiary" && <Bestiary />}
+
         {currentPage === "loot" && <LootGenerator />}
+
         {currentPage === "dice" && <DiceTray />}
       </main>
 

@@ -1,17 +1,28 @@
 export default function Navbar({ currentPage, setCurrentPage }) {
   return (
     <nav className="navbar">
-      <button onClick={() => setCurrentPage("bestiary")}>
+
+      <button
+        className={currentPage === "bestiary" ? "active" : ""}
+        onClick={() => setCurrentPage("bestiary")}
+      >
         Bestiario
       </button>
 
-      <button onClick={() => setCurrentPage("loot")}>
+      <button
+        className={currentPage === "loot" ? "active" : ""}
+        onClick={() => setCurrentPage("loot")}
+      >
         Botín
       </button>
 
-      <button onClick={() => setCurrentPage("dice")}>
+      <button
+        className={currentPage === "dice" ? "active" : ""}
+        onClick={() => setCurrentPage("dice")}
+      >
         Dados
       </button>
+
     </nav>
   );
 }

@@ -1,118 +1,49 @@
-import { useEffect, useState } from "react";
-import MonsterCard from "../components/MonsterCard";
+import { useState } from "react";
 
-export default function Bestiary() {
-  const [monsters, setMonsters] = useState([]);
-  const [search, setSearch] = useState("");
-  const [selectedMonster, setSelectedMonster] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+export default function DiceTray() {
+  const diceTypes = [4, 6, 8, 10, 12, 20, 100];
 
-  useEffect(() => {
-    async function getMonsters() {
-      try {
-        const response = await fetch(
-          "https://www.dnd5eapi.co/api/2014/monsters"
-        );
+  const [selectedDice, setSelectedDice] = useState(20);
+  const [result, setResult] = useState(null);
 
-        if (!response.ok) {
-          throw new Error("Error al consultar la API");
-        }
-
-        const data = await response.json();
-
-        setMonsters(data.results);
-      } catch (err) {
-        setError("No se pudieron cargar los monstruos.");
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    getMonsters();
-  }, []);
-
-  const filteredMonsters = monsters.filter((monster) =>
-    monster.name.toLowerCase().includes(search.toLowerCase())
-  );
-
-  async function viewMonster(monster) {
-    try {
-      setError("");
-      setLoading(true);
-      setSelectedMonster(null);
-
-      const response = await fetch(
-        `https://www.dnd5eapi.co${monster.url}`
-      );
-
-      if (!response.ok) {
-        throw new Error("Error al consultar el monstruo");
-      }
-
-      const data = await response.json();
-
-      setSelectedMonster(data);
-    } catch (err) {
-      setError("No se pudieron cargar los detalles.");
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
+  function rollDice() {
+    const number = Math.floor(Math.random() * selectedDice) + 1;
+    setResult(number);
   }
 
   return (
     <section>
-      <h2>Bestiario</h2>
+      <h2>Bandeja de dados</h2>
 
-      <p>Consulta los monstruos de Dungeons & Dragons 5e.</p>
+      <p>Selecciona un dado y realiza un lanzamiento.</p>
 
-      <input
-        className="search-input"
-        type="text"
-        placeholder="Buscar monstruo..."
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
-      />
+      <div className="dice-container">
+        <h3>Selecciona un dado</h3>
 
-      {loading && <p>Cargando...</p>}
-
-      {error && <p>{error}</p>}
-
-      {!loading && (
-        <div className="monster-grid">
-          {filteredMonsters.slice(0, 30).map((monster) => (
-            <div className="monster-card" key={monster.index}>
-              <h3>{monster.name}</h3>
-
-              <button onClick={() => viewMonster(monster)}>
-                Ver estadísticas
-              </button>
-            </div>
+        <div className="dice-buttons">
+          {diceTypes.map((dice) => (
+            <button
+              key={dice}
+              className={selectedDice === dice ? "selected" : ""}
+              onClick={() => {
+                setSelectedDice(dice);
+                setResult(null);
+              }}
+            >
+              d{dice}
+            </button>
           ))}
         </div>
-      )}
 
-      {selectedMonster && (
-        <div className="monster-details">
-          <h2>{selectedMonster.name}</h2>
-
-          <MonsterCard
-            monster={selectedMonster}
-            onSelect={() => {}}
-          />
-
-          <p>Tipo: {selectedMonster.type}</p>
-          <p>Tamaño: {selectedMonster.size}</p>
-          <p>Fuerza: {selectedMonster.strength}</p>
-          <p>Destreza: {selectedMonster.dexterity}</p>
-
-          <button onClick={() => setSelectedMonster(null)}>
-            Cerrar detalles
-          </button>
+        <div className="dice-result">
+          <p>Dado seleccionado: d{selectedDice}</p>
+          <h1>{result === null ? "?" : result}</h1>
         </div>
-      )}
+
+        <button className="roll-button" onClick={rollDice}>
+          Lanzar dado
+        </button>
+      </div>
     </section>
   );
 }
