@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">DM Companion</string>
+    <string name="title_activity_main">DM Companion</string>
+    <string name="package_name">com.dmcompanion.app</string>
+    <string name="custom_url_scheme">com.dmcompanion.app</string>
+</resources>
