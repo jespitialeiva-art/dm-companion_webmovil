@@ -243,3 +243,27 @@ h2 {
 .roll-button:hover {
   background-color: #e8c47d;
 }
+/* Paginación del bestiario */
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  background-color: #b08d57;
+  color: #111111;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
