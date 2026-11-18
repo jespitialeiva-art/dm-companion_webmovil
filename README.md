@@ -1,16 +1,97 @@
-# React + Vite
+# DM Companion
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web y Android diseñada para asistir a Dungeon Masters
+durante partidas de Dungeons & Dragons 5e.
 
-Currently, two official plugins are available:
+## Tecnologías
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- Vite
+- JavaScript
+- CSS
+- CapacitorJS
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Bestiario
 
-## Expanding the ESLint configuration
+Permite consultar monstruos de Dungeons & Dragons 5e.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Listado de monstruos.
+- Búsqueda por nombre.
+- Consulta de estadísticas.
+- Paginación.
+- Tarjetas reutilizables.
+
+### 2. Generador de botín
+
+Genera recompensas aleatorias según el nivel de desafío.
+
+- Selección del nivel de desafío (CR).
+- Generación de monedas.
+- Consulta de objetos desde la API.
+- Recompensas relacionadas con la dificultad.
+
+### 3. Bandeja de dados
+
+Permite realizar lanzamientos de los dados:
+
+- d4
+- d6
+- d8
+- d10
+- d12
+- d20
+- d100
+
+Los resultados se generan aleatoriamente mediante JavaScript.
+
+## API utilizada
+
+Dungeons & Dragons 5e API
+
+https://www.dnd5eapi.co/
+
+Se utilizan los endpoints de monstruos, equipamiento y objetos mágicos.
+
+## Aplicación web
+
+https://dm-companion-webmovil.vercel.app
+
+## Aplicación Android
+
+La aplicación utiliza CapacitorJS para integrar React con Android.
+
+El APK de prueba está disponible en GitHub Releases:
+
+https://github.com/jespitialeiva-art/dm-companion_webmovil/releases/tag/v1.0.0
+
+## Ejecución del proyecto
+
+1. Descargar o clonar el repositorio.
+2. Instalar las dependencias:
+
+   npm install
+
+3. Ejecutar la aplicación:
+
+   npm run dev
+
+4. Generar la versión de producción:
+
+   npm run build
+
+## Compilación Android
+
+El proyecto utiliza CapacitorJS y GitHub Actions.
+
+Para sincronizar los archivos web con Android:
+
+npm run build
+npx cap sync android
+
+La compilación Android se realiza mediante GitHub Actions.
+
+## Repositorio
+
+https://github.com/jespitialeiva-art/dm-companion_webmovil
